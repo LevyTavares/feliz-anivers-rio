@@ -1,0 +1,54 @@
+@use "../styles/variables" as *;
+
+.decor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.decor__balloon,
+.decor__spark {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.75;
+}
+.decor__balloon--1 {
+  left: 1rem;
+  bottom: 10%;
+  animation: floatUp 9s linear infinite;
+}
+.decor__balloon--2 {
+  right: 1.2rem;
+  bottom: 15%;
+  animation: floatUp 11s linear infinite;
+}
+.decor__spark--1 {
+  left: 20%;
+  top: 10%;
+  animation: twinkle 2s ease-in-out infinite;
+}
+.decor__spark--2 {
+  right: 15%;
+  top: 25%;
+  animation: twinkle 2.6s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-120vh);
+  }
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}

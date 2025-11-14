@@ -1,0 +1,101 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  color: $text;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background: radial-gradient(
+      1200px 600px at 10% 10%,
+      rgba(124, 77, 255, 0.15),
+      transparent 40%
+    ),
+    radial-gradient(
+      1200px 600px at 90% 20%,
+      rgba(255, 94, 168, 0.15),
+      transparent 40%
+    ),
+    linear-gradient(160deg, $bg-start, $bg-end);
+}
+
+.page {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: calc(0.8rem + env(safe-area-inset-top))
+    calc(1rem + env(safe-area-inset-right)) 0.8rem
+    calc(1rem + env(safe-area-inset-left));
+  @include glass(rgba(255, 255, 255, 0.04));
+}
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+main {
+  padding: 1.2rem calc(1rem + env(safe-area-inset-right)) 1.2rem
+    calc(1rem + env(safe-area-inset-left));
+}
+
+.section {
+  margin-inline: auto;
+  max-width: 1100px;
+}
+.section__title {
+  margin: 2rem 0 0.5rem;
+  font-size: clamp(1.4rem, 1.2rem + 1.2vw, 2rem);
+}
+.section__subtitle {
+  margin: 0 0 1rem;
+  opacity: 0.85;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem calc(1rem + env(safe-area-inset-right))
+    calc(1rem + env(safe-area-inset-bottom))
+    calc(1rem + env(safe-area-inset-left));
+  opacity: 0.8;
+}
+
+.btn-primary {
+  @include button-base;
+  background: linear-gradient(90deg, $primary, $secondary);
+  color: white;
+}
+.btn-ghost {
+  @include button-base;
+  background: rgba(255, 255, 255, 0.08);
+  color: $text;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// Utilitários
+.hide {
+  display: none !important;
+}
