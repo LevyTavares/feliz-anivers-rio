@@ -4,7 +4,7 @@ import Hero from "./components/Hero.tsx";
 import LetterModal from "./components/LetterModal.tsx";
 import PictographGrid from "./components/PictographGrid.tsx";
 import FloatingDecor from "./components/FloatingDecor.tsx";
-import MusicButton from "./components/MusicButton.tsx";
+import ParabensButton from "./components/ParabensButton.tsx";
 
 function App() {
   const [openLetter, setOpenLetter] = useState(false);
@@ -24,7 +24,7 @@ function App() {
       <header className="topbar">
         <div className="brand">🎉 Feliz Aniversário</div>
         <nav className="actions">
-          <MusicButton />
+          <ParabensButton />
           <Confetti label="Soltar confete" />
         </nav>
       </header>
